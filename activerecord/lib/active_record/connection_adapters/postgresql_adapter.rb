@@ -955,6 +955,7 @@ module ActiveRecord
             AND attr.attnum       = dep.refobjsubid
             AND attr.attrelid     = cons.conrelid
             AND attr.attnum       = cons.conkey[1]
+            AND dep.classid       = 'pg_class'::regclass
             AND cons.contype      = 'p'
             AND dep.refobjid      = '#{quote_table_name(table)}'::regclass
         end_sql
